@@ -27,6 +27,14 @@ let package = Package(
             name: "ArcGISToolkit",
             targets: ["ArcGISToolkit"]
         ),
+        .library(
+            name: "ArcGIS",
+            targets: ["ArcGIS"]
+        ),
+        .library(
+            name: "CoreArcGIS",
+            targets: ["CoreArcGIS"]
+        ),
     ],
     targets: [
         .target(
