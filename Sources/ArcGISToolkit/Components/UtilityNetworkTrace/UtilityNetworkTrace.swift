@@ -149,7 +149,7 @@ public struct UtilityNetworkTrace: View {
                                     Task {
                                         if let feature = await viewModel.feature(for: element),
                                            let geometry = feature.geometry {
-                                            viewpoint = Viewpoint(targetExtent: geometry.extent)
+                                            viewpoint = Viewpoint(boundingGeometry: geometry)
                                         }
                                     }
                                 } label: {
@@ -281,7 +281,7 @@ public struct UtilityNetworkTrace: View {
                     currentActivity = .viewingTraces(nil)
                     if shouldZoomOnTraceCompletion,
                        let extent = viewModel.selectedTrace?.resultExtent {
-                        viewpoint = Viewpoint(targetExtent: extent)
+                        viewpoint = Viewpoint(boundingGeometry: extent)
                     }
                 }
             }
@@ -324,7 +324,7 @@ public struct UtilityNetworkTrace: View {
             Menu(selectedTrace.name) {
                 if let resultExtent = selectedTrace.resultExtent {
                     Button("Zoom To") {
-                        viewpoint = Viewpoint(targetExtent: resultExtent)
+                        viewpoint = Viewpoint(boundingGeometry: resultExtent)
                     }
                 }
                 Button("Delete", role: .destructive) {
@@ -438,8 +438,8 @@ public struct UtilityNetworkTrace: View {
         Menu(selectedStartingPoint?.utilityElement?.assetType.name ?? "Unnamed Asset Type") {
             Button("Zoom To") {
                 if let selectedStartingPoint = selectedStartingPoint,
-                   let extent = selectedStartingPoint.geoElement.geometry?.extent {
-                    viewpoint = Viewpoint(targetExtent: extent)
+                   let geometry = selectedStartingPoint.geoElement.geometry {
+                    viewpoint = Viewpoint(boundingGeometry: geometry)
                 }
             }
             Button("Delete", role: .destructive) {

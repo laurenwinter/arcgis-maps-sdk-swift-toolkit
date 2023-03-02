@@ -28,19 +28,21 @@ let package = Package(
             targets: ["ArcGISToolkit"]
         ),
     ],
-    dependencies: [
-        .package(url: "https://github.com/Esri/arcgis-maps-sdk-swift", .upToNextMinor(from: "200.0.0-beta"))
-    ],
     targets: [
         .target(
             name: "ArcGISToolkit",
             dependencies: [
-                .product(name: "ArcGIS", package: "arcgis-maps-sdk-swift")
+                "ArcGIS",
+                "CoreArcGIS"
             ]
         ),
         .testTarget(
             name: "ArcGISToolkitTests",
             dependencies: ["ArcGISToolkit"]
-        )
+        ),
+        .binaryTarget(name: "ArcGIS", url: "https://sitescan-ios-dependencies.s3.amazonaws.com/ArcGIS/ArcGIS_200.1.0_3801/ArcGIS.xcframework.zip",
+                      checksum: "0865e516b90bf6c0e2c7a5253ce058a20902e2db8d073944b894c4eeb66728ef"),
+        .binaryTarget(name: "CoreArcGIS", url: "https://sitescan-ios-dependencies.s3.amazonaws.com/ArcGIS/CoreArcGIS_200.1.0_3801/CoreArcGIS.xcframework.zip",
+                      checksum: "e557e5a658858d8434bec33032f5f1eebb3f568c77032304c631ffcb822535ba")
     ]
 )
