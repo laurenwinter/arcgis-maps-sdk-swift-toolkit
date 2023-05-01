@@ -100,6 +100,23 @@ public extension Compass {
         self.init(heading: heading, mapViewProxy: mapViewProxy)
     }
     
+    /// Creates a compass with a rotation (0° indicates a direction toward true North, 90° indicates
+    /// a direction toward true West, etc.).
+    /// - Parameters:
+    ///   - rotation: The rotation whose value determines the heading of the compass.
+    ///   - mapViewProxy: The proxy to provide access to map view operations.
+    init(
+        rotation: Double?
+    ) {
+        let heading: Double
+        if let rotation {
+            heading = rotation.isZero ? .zero : 360 - rotation
+        } else {
+            heading = .nan
+        }
+        self.init(heading: heading)
+    }
+    
     /// Define a custom size for the compass.
     /// - Parameter size: The width and height of the compass.
     func compassSize(size: CGFloat) -> Self {
