@@ -48,9 +48,9 @@ let package = Package(
             name: "ArcGISToolkitTests",
             dependencies: ["ArcGISToolkit"]
         ),
-        .binaryTarget(name: "ArcGIS", url: "https://sitescan-ios-dependencies.s3.amazonaws.com/ArcGIS/ArcGIS_200.2.0_3885/ArcGIS.xcframework.zip",
-                      checksum: "f2fa6ac12da5c198fd412341fbe0d5aeded2ae508bec3b43492e2a29929308e1"),
-        .binaryTarget(name: "CoreArcGIS", url: "https://sitescan-ios-dependencies.s3.amazonaws.com/ArcGIS/CoreArcGIS_200.2.0_3885/CoreArcGIS.xcframework.zip",
-                      checksum: "7c239b311b0d089fb36f218463561839bb1e522397a5d9af3a94070b0fb5d49b")
+        .binaryTarget(name: "ArcGIS", url: "https://sitescan-ios-dependencies.s3.amazonaws.com/ArcGIS/ArcGIS_200.2.0_3882_custom/ArcGIS.xcframework.zip",
+                      checksum: "a366aae3068d186fdc213ec7165d969dc9a00c165ee5358444d4275cb63eeb40"),
+        .binaryTarget(name: "CoreArcGIS", url: "https://sitescan-ios-dependencies.s3.amazonaws.com/ArcGIS/CoreArcGIS_200.2.0_3882_custom/CoreArcGIS.xcframework.zip",
+                      checksum: "b683acdaacd9cd7f9ac9c1fc24474f2eab610ab180a464b51c70ee5a139c44f2")
     ]
 )
